@@ -1,0 +1,11 @@
+# Math Number Quest - Robots.txt
+# Allow all search engines to crawl
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://mathgame.shagunmistry.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

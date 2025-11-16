@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-200 min-h-screen;
+    font-family: var(--font-fredoka), sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white font-bold py-3 px-6 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-yellow-50 text-purple-700 font-bold py-3 px-6 rounded-2xl border-4 border-purple-300 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 active:scale-95;
+  }
+
+  .card {
+    @apply bg-white rounded-3xl shadow-2xl p-8 border-4 border-purple-200 transform transition-all duration-300;
+  }
+
+  .operation-btn {
+    @apply flex items-center justify-center gap-2 px-6 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 active:scale-95;
+  }
+
+  .number-display {
+    @apply text-6xl font-black bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent animate-pulse;
+  }
+
+  .sparkle-btn {
+    @apply relative overflow-hidden;
+  }
+
+  .sparkle-btn::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20;
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes wiggle {
+    0%, 100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.5s ease-out;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  .star-rain {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  .confetti {
+    @apply fixed pointer-events-none;
+    animation: fall 3s linear forwards;
+  }
+}
